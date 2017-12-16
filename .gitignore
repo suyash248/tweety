@@ -7,6 +7,10 @@ bin
 hooks
 lib
 include
+HEAD
+config
+description
+info
 settings.py
 *.lprof
 *.swp
