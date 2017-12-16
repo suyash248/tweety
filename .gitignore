@@ -3,9 +3,12 @@
 *.pyc
 environment
 .environment
+bin
+hooks
+lib
+include
 settings.py
 *.lprof
 *.swp
 page
 .Python
-settings.py
