@@ -1,20 +1,35 @@
 from tweepy.streaming import StreamListener
 import json
+from service.esutil import es
 
 class TweetyStreamDataListener(StreamListener):
     # on success
     def on_status(self, status):
-        data = status._json
+        hashtags = []
+        for hashtag in status.entities['hashtags']:
+            hashtags.append(hashtag['text'])
 
-        #print dict_data
-        print "@{author} : {tweet}".format(author=data["user"]["screen_name"].encode('utf-8'),
-                                           tweet=data["text"].encode('utf-8'))
+        country = status.place.country if status.place is not None else ""
+        country_code = status.place.country_code if status.place is not None else ""
 
-        # es.index(index="tweetstream",
-        #          doc_type="tweet",
-        #          body={"author": dict_data["user"]["screen_name"],
-        #                "date": dict_data["created_at"],
-        #                "message": dict_data["text"]})
+        doc = {
+            "screen_name": status.user.screen_name,
+            "user_name": status.user.name,
+            "location": status.user.location,
+            "source_device": status.source,
+            "is_retweeted": status.retweeted,
+            "retweet_count": status.retweet_count,
+            "country": country,
+            "country_code": country_code,
+            "reply_count": status.reply_count,
+            "favorite_count": status.favorite_count,    # likes
+            "tweet_text": status.text,
+            "created_at": status.created_at,
+            "timestamp_ms": status.timestamp_ms,
+            "lang": status.lang,
+            "hashtags": hashtags
+        }
+        es.index(index="tweets_index", doc_type="tweet", body=doc)
         return True
 
     # on failure
