@@ -1,6 +1,7 @@
 from tweepy.streaming import StreamListener
 import json
 from service.esutil import es
+from settings import es_mappings
 
 class TweetyStreamDataListener(StreamListener):
     # on success
@@ -29,7 +30,15 @@ class TweetyStreamDataListener(StreamListener):
             "lang": status.lang,
             "hashtags": hashtags
         }
-        es.index(index="tweets_index", doc_type="tweet", body=doc)
+
+        # Updates mapping
+        # mapping_res = es.indices.put_mapping(index="tweets_index", doc_type="tweet", body=es_mappings.get("tweet_index"))
+
+        mappings = es_mappings.get("tweet_index")
+        # Creates mapping
+        mapping_res = es.indices.create(index="tweets_index", ignore=400,
+                                             body=json.dumps(mappings))
+        c_res = es.index(index="tweets_index", doc_type="tweet", body=doc)
         return True
 
     # on failure
