@@ -73,27 +73,3 @@ class QueryBuilder(object):
     @classmethod
     def execute(cls, s):
         return s.execute()
-
-# q = Q('bool',
-#     must=[Q('match', title='python')],
-#     should=[Q(...), Q(...)],
-#     minimum_should_match=1
-# )
-# s = Search().query(q)
-
-
-# query = {
-#     "AND": [    # must
-#         {
-#             "operator": "", # equals, contains, startswith, endswith, wildcard, gt, gte, lt, lte
-#             "fields": [],
-#             "value": ""
-#         }
-#     ],
-#     "OR": [ # should
-#
-#     ],
-#     "NOT": [ # must_not
-#
-#     ]
-# }

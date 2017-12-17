@@ -1,8 +1,6 @@
 from tweepy import Stream
 from service.twitter.listener.tweety_listener import TweetyStreamDataListener
 from settings import twitter_config
-#from elasticsearch import Elasticsearch
-#es = Elasticsearch()
 
 class Tweety(object):
     def __init__(self, listener=TweetyStreamDataListener()):
@@ -23,4 +21,4 @@ class Tweety(object):
         return None
 
     def filter(self, keywords=None, async=True):
-        return self.streamer.filter(track=keywords, async=True)
+        return self.streamer.filter(track=keywords, async=async)
