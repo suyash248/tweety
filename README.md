@@ -23,13 +23,13 @@ $ cp settings_sample.py settings.py
 ```
 
 
-> If you are using PyCharm then environment variables can be specified under `run configuration`.
-
 3. Add project to ```PYTHONPATH``` as 
 
 ```sh 
 $ export PYTHONPATH="$PYTHONPATH:." # . corresponds to current directory(project-dir)
 ```
+
+> If you are using PyCharm then it can be done under `run configuration`.
 
 4. Under ```<project-dir>``` install requirements/dependencies as 
 
