@@ -63,9 +63,9 @@ class QueryBuilder(object):
         combined_q = Q('bool', **processed_fragments)
         return combined_q
 
-    def search(self):
+    def search(self, index=None, doc_type=None):
         q = self._combine_query()
-        s = dsl_search.query(q)
+        s = dsl_search.index(index).doc_type(doc_type).query(q)
         return s
 
     @classmethod

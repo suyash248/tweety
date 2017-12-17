@@ -13,7 +13,7 @@ class Range(Query):
             self.fields[0]: {
                 self.operator: self.query
             }
-        },
+        }
         # Range(** {'@timestamp': {'lt': 'now'}})
         q = Q("range", **criterion)
         return q
