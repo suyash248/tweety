@@ -16,7 +16,7 @@ $ virtualenv .environment
 $ source .environment/bin/activate
 ```
 
-2. Copy ```settings_sample.py``` and create ```settings.py```. Edit configuration/settings related to ```Twitter developer app``` app.
+2. Copy ```settings_sample.py``` and create ```settings.py```. Edit configuration/settings related to ```Twitter developer app```.
 
 ```sh
 $ cp settings_sample.py settings.py
