@@ -41,9 +41,10 @@ class QueryBuilder(object):
         }
 
         for operator_type, operator_type_criteria in self.criteria.items():
-            query_type_obj = Operator(**operator_type_criteria).get_query_type_instance()
-            q = query_type_obj.build()
-            bool_query_fragments[operator_type].append(q)
+            for operator_type_criterion in operator_type_criteria:
+                query_type_obj = Operator(**operator_type_criterion).get_query_type_instance()
+                q = query_type_obj.build()
+                bool_query_fragments[operator_type].append(q)
 
         return bool_query_fragments
 
