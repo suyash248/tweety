@@ -23,4 +23,4 @@ class Tweety(object):
         return None
 
     def filter(self, keywords=None, async=True):
-        self.streamer.filter(track=keywords, async=True)
+        return self.streamer.filter(track=keywords, async=True)
