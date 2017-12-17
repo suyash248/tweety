@@ -57,7 +57,8 @@ $ python app.py
 GET /stream?keywords=cricket,hockey,virat
 ```
 
-It will start streaming real-time tweets containing ```kewords```
+It will start streaming real-time tweets containing ```kewords```. And tweets will get persisted in elasticsearch under
+the index ```tweets_index``` and ```tweet``` document type.
 
 *Response*
 
@@ -66,7 +67,6 @@ It will start streaming real-time tweets containing ```kewords```
   status: "success",
   message: "Started streaming tweets with keywords [u'cricket', u'hockey', u'virat']"
 }
-message+-View sourceoptions
 ```
 
 ### Funneling/Searching
@@ -75,18 +75,22 @@ message+-View sourceoptions
 POST /funnel?from=0&size=20
 ```
 
-> Note: ```from``` & ```size``` are optional, default ```size``` is 100.
+**Operators**: "equals", "contains", "wildcard", "gte", "gt", "lte", "lt"
+
+**Fields**: "screen_name", "user_name", "location", "source_device", "is_retweeted", "retweet_count", "country", "country_code", "reply_count", "favorite_count", "tweet_text", "created_at", "timestamp_ms", "lang", "hashtags"
+
+> Note: ```from``` & ```size```  can be used for limit/pagination, but are optional, default ```size``` is 100.
 
 *Request body*
 
 ```
 {
-	"sort":["created_at"],
+	"sort":["created_at"],          		// User '-' sign for 'desc' order.
 	"criteria": {
 		"AND": [
 			{
-                "fields": ["created_at"],
-                "operator": "gte",
+                "fields": ["created_at"],	
+                "operator": "gte",			// equals, contains, wildcard, gte, gt, lte, lt
                 "query": "2017-12-17T14:18:13"
             },
             {
@@ -165,3 +169,4 @@ POST /funnel?from=0&size=20
     ]
 }
 ```
+
