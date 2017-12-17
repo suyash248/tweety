@@ -3,15 +3,13 @@ from elasticsearch_dsl import Q
 from service.esutil.querybuilder.query.query import Query
 
 class Operator(object):
-    # equals, contains, startswith, endswith, wildcard, gt, gte, lt, lte
+    # equals, contains, wildcard, gt, gte, lt, lte
     def __init__(self, **kwargs):
         self.kwargs = kwargs
         self.operator = kwargs.get('operator')
 
     __equals__ = "equals"
     __contains__ = "contains"
-    __startswith__ = "startswith"
-    __endswith__ = "endswith"
     __wildcard__ = "wildcard"
     __gt__ = "gt"
     __gte__ = "gte"
@@ -23,7 +21,7 @@ class Operator(object):
             return Query.instantiate(Query.TERM, **self.kwargs)
         elif self.operator == self.__contains__:
                 return Query.instantiate(Query.MULTIMATCH, **self.kwargs)
-        elif self.operator in [self.__startswith__, self.__endswith__, self.__wildcard__]:
+        elif self.operator in [self.__wildcard__]:
                 return Query.instantiate(Query.WILDCARD, **self.kwargs)
         elif self.operator in [self.__gt__, self.__gte__, self.__lt__, self.__lte__]:
                 return Query.instantiate(Query.RANGE, **self.kwargs)
