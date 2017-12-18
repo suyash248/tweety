@@ -62,7 +62,7 @@ the index ```tweets_index``` and ```tweet``` document type.
 
 *Response*
 
-```
+```json
 {
   status: "success",
   message: "Started streaming tweets with keywords [u'cricket', u'hockey', u'virat']"
