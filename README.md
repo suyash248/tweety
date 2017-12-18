@@ -64,8 +64,8 @@ the index ```tweets_index``` and ```tweet``` document type.
 
 ```json
 {
-  status: "success",
-  message: "Started streaming tweets with keywords [u'cricket', u'hockey', u'virat']"
+  "status": "success",
+  "message": "Started streaming tweets with keywords [u'cricket', u'hockey', u'virat']"
 }
 ```
 
@@ -83,7 +83,7 @@ POST /funnel?from=0&size=20
 
 *Request body*
 
-```
+```json
 {
 	"sort":["created_at"],          		// User '-' sign for 'desc' order.
 	"criteria": {
