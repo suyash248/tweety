@@ -90,7 +90,7 @@ POST /funnel?from=0&size=20
 		"AND": [
 		    {
 			"fields": ["created_at"],	
-			"operator": "gte",			// equals, contains, wildcard, gte, gt, lte, lt
+			"operator": "gte",		// equals, contains, wildcard, gte, gt, lte, lt
 			"query": "2017-12-17T14:18:13"
 		    },
 		    {
