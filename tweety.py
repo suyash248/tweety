@@ -23,7 +23,7 @@ class Tweety(object):
     def filter(self, keywords=None, async=True):
         streamer = self.__streamer__()
         try:
-            print "[STREAM] Started steam"
+            print "[STREAM] Started stream"
             streamer.filter(track=keywords, async=async)
         except Exception as ex:
             print "[STREAM] Stream stopped! Reconnecting to twitter stream"
