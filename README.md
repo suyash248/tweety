@@ -88,39 +88,37 @@ POST /funnel?from=0&size=20
 	"sort":["created_at"],          		// User '-' sign for 'desc' order.
 	"criteria": {
 		"AND": [
-			{
-                "fields": ["created_at"],	
-                "operator": "gte",			// equals, contains, wildcard, gte, gt, lte, lt
-                "query": "2017-12-17T14:18:13"
-            },
-            {
-                "fields": ["location"],
-                "operator": "wildcard",
-                "query": "*ind*"
-            }
+		    {
+			"fields": ["created_at"],	
+			"operator": "gte",			// equals, contains, wildcard, gte, gt, lte, lt
+			"query": "2017-12-17T14:18:13"
+		    },
+		    {
+			"fields": ["location"],
+			"operator": "wildcard",
+			"query": "*ind*"
+		    }
 		],
-        "OR": [
-            {
-                "fields": ["hashtags"],
-                "operator": "contains",
-                "query": "cricket"
-            },
-            {
-                "fields": ["hashtags"],
-                "operator": "contains",
-                "query": "hockey"
-            }
-       
-        ],
-        
-        "NOT": [
-        	{
-                "fields": ["source_device"],
-                "operator": "equals",
-                "query": "Twitter for Android"
-            }
-        ]
-    }
+		"OR": [
+		    {
+			"fields": ["hashtags"],
+			"operator": "contains",
+			"query": "cricket"
+		    },
+		    {
+			"fields": ["hashtags"],
+			"operator": "contains",
+			"query": "hockey"
+		    }
+		],
+		"NOT": [
+			{
+			"fields": ["source_device"],
+			"operator": "equals",
+			"query": "Twitter for Android"
+		    }
+		]
+    	}
 }
 ```
 
