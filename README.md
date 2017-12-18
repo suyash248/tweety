@@ -95,6 +95,10 @@ POST /funnel?from=0&size=20
 			"fields": ["location"],
 			"operator": "wildcard",
 			"query": "*ind*"
+		    }, {
+			"fields": ["hashtags"],		// 'hashtags' is an array field.
+			"operator": "contains",
+			"query": "Cricket"
 		    }
 		],
 		"OR": [{
