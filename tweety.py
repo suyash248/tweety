@@ -23,10 +23,10 @@ class Tweety(object):
     def filter(self, keywords=None, async=True):
         streamer = self.__streamer__()
         try:
-            print "[STREAM] Started stream"
+            print "[STREAM] Started stream using keywords", keywords
             streamer.filter(track=keywords, async=async)
         except Exception as ex:
-            print "[STREAM] Stream stopped! Reconnecting to twitter stream"
+            print "[STREAM] Stream stopped! Reconnecting to twitter stream, keywords", keywords
             print ex.message, ex.args
             self.filter(keywords=keywords, async=async)
 
