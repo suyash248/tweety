@@ -62,7 +62,7 @@ the index ```tweets_index``` and ```tweet``` document type.
 
 *Response*
 
-```json
+```javascript
 {
   "status": "success",
   "message": "Started streaming tweets with keywords [u'cricket', u'hockey', u'virat']"
@@ -83,7 +83,7 @@ POST /funnel?from=0&size=20
 
 *Request body*
 
-```json
+```javascript
 {
 	"sort":["created_at"],          		// User '-' sign for 'desc' order.
 	"criteria": {
@@ -123,7 +123,7 @@ POST /funnel?from=0&size=20
 
 *Response*
 
-```
+```javascript
 {
     "count": {
         "total": 21,
