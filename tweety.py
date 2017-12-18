@@ -6,12 +6,12 @@ class Tweety(object):
     def __init__(self, listener=TweetyStreamDataListener()):
         self.listener = listener
         self.__auth__ = None
-        self.streamer = self.__streamer__()
 
     def __authenticate__(self):
         from tweepy import OAuthHandler
-        self.__auth__ = OAuthHandler(twitter_config['consumer_key'], twitter_config['consumer_secret'])
-        self.__auth__.set_access_token(twitter_config['access_token'], twitter_config['access_token_secret'])
+        if self.__auth__ is None:
+            self.__auth__ = OAuthHandler(twitter_config['consumer_key'], twitter_config['consumer_secret'])
+            self.__auth__.set_access_token(twitter_config['access_token'], twitter_config['access_token_secret'])
         return self.__auth__ is not None
 
     def __streamer__(self):
@@ -21,4 +21,12 @@ class Tweety(object):
         return None
 
     def filter(self, keywords=None, async=True):
-        return self.streamer.filter(track=keywords, async=async)
+        streamer = self.__streamer__()
+        try:
+            print "[STREAM] Started steam"
+            streamer.filter(track=keywords, async=async)
+        except Exception as ex:
+            print "[STREAM] Stream stopped! Reconnecting to twitter stream"
+            print ex.message, ex.args
+            self.filter(keywords=keywords, async=async)
+
