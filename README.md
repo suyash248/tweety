@@ -1,10 +1,10 @@
 # Tweety 
-**Uses twitter Streaming API to get the target tweets for a recent high traffic event(s), and persisting them to elasticsearch. Later, tweets can be filtered using REST API**
+**Uses "Twitter Streaming API" to get the target tweets for a recent high traffic event(s), and persisting them to elasticsearch. Later, tweets can be filtered using REST API**
 
 ## Requirements
 Python 2.7+, pip, Elastilcsearch, Twitter developer app
 
-> Note: For creating `Twitter developer app', visit [Twitter Application Management](https://apps.twitter.com/) page
+> Note: For creating `Twitter developer app`, visit [Twitter Application Management](https://apps.twitter.com/) page
 
 ## How to run?
 1. Move to ```<project-dir>```, create virual environment and then activate it as
