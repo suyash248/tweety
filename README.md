@@ -50,28 +50,6 @@ $ python app.py
 
 ## Schema
 
-**Operators**: Following operators are available in order to filter/query data/tweets -
-
-* _```equals```_ : Facilitates exact match, or **=** operator for numeric/datetime values.
-
-* _```contains```_ : Facilitates full-text search.
-
-* _```wildcard```_ : 
-
-	* ```startswith``` : _*ind_ (Starts with *ind*), 
-	
-	* ```endswith``` : _ind*_ (Ends with *ind*), 
-	
-	* ```wildcard``` : _\*ind\*_ (searches *ind* anywhere in string)
-
-* _```gte```_ : **>=** operator for numeric/datetime values.
-
-* _```gt```_ : **>** operator for numeric/datetime values.
-
-* _```lte```_ : **<=** operator for numeric/datetime values.
-
-* _```lt```_ : **<** operator for numeric/datetime values.
-
 **Fields**: In Elasticsearch, every document ```tweet``` under ```tweets_index``` will contain following fields - 
 
 * _```tweet_text```_: string, 
@@ -104,6 +82,30 @@ $ python app.py
 
 * _```hashtags```_: array
 
+
+## Operators
+
+**Operators**: Following operators are available in order to filter/query data/tweets -
+
+* _```equals```_ : Facilitates exact match, or **=** operator for numeric/datetime values.
+
+* _```contains```_ : Facilitates full-text search.
+
+* _```wildcard```_ : 
+
+	* ```startswith``` : _*ind_ (Starts with *ind*), 
+	
+	* ```endswith``` : _ind*_ (Ends with *ind*), 
+	
+	* ```wildcard``` : _\*ind\*_ (searches *ind* anywhere in string)
+
+* _```gte```_ : **>=** operator for numeric/datetime values.
+
+* _```gt```_ : **>** operator for numeric/datetime values.
+
+* _```lte```_ : **<=** operator for numeric/datetime values.
+
+* _```lt```_ : **<** operator for numeric/datetime values.
 
 
 ## API's/Endpoints
