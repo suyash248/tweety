@@ -81,35 +81,37 @@ POST /funnel?from=0&size=20
 
 **Fields**: 
 
-_```tweet_text```_: string, 
+In Elasticsearch, every document ```tweet``` under ```tweets_index``` will contain following fields - 
 
-_```screen_name```_ : string,
+* _```tweet_text```_: string, 
 
-_```user_name```_: string, 
+* _```screen_name```_ : string,
 
-_```location```_: string, 
+* _```user_name```_: string, 
 
-_```source_device```_: string, 
+* _```location```_: string, 
 
-_```is_retweeted```_: boolean, 
+* _```source_device```_: string, 
 
-_```retweet_count```_: integer,
+* _```is_retweeted```_: boolean, 
 
-_```country```_: string, 
+* _```retweet_count```_: integer,
 
-_```country_code```_: string, 
+* _```country```_: string, 
 
-_```reply_count```_: integer, 
+* _```country_code```_: string, 
 
-_```favorite_count```_: integer, 
+* _```reply_count```_: integer, 
 
-_```created_at```_: datetime, 
+* _```favorite_count```_: integer, 
 
-_```timestamp_ms```_: long, 
+* _```created_at```_: datetime, 
 
-_```lang```_: string, 
+* _```timestamp_ms```_: long, 
 
-_```hashtags```_: array
+* _```lang```_: string, 
+
+* _```hashtags```_: array
 
 
 *Request body*
