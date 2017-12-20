@@ -79,9 +79,7 @@ POST /funnel?from=0&size=20
 
 **Operators**: ```equals```, ```contains```, ```wildcard```, ```gte```, ```gt```, ```lte```, ```lt```
 
-**Fields**: 
-
-In Elasticsearch, every document ```tweet``` under ```tweets_index``` will contain following fields - 
+**Fields**: In Elasticsearch, every document ```tweet``` under ```tweets_index``` will contain following fields - 
 
 * _```tweet_text```_: string, 
 
