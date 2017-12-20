@@ -75,11 +75,42 @@ the index ```tweets_index``` and ```tweet``` document type.
 POST /funnel?from=0&size=20
 ```
 
-**Operators**: "equals", "contains", "wildcard", "gte", "gt", "lte", "lt"
-
-**Fields**: "screen_name", "user_name", "location", "source_device", "is_retweeted", "retweet_count", "country", "country_code", "reply_count", "favorite_count", "tweet_text", "created_at", "timestamp_ms", "lang", "hashtags"
-
 > Note: ```from``` & ```size```  can be used for limit/pagination, but are optional, default ```size``` is 100.
+
+**Operators**: ```equals```, ```contains```, ```wildcard```, ```gte```, ```gt```, ```lte```, ```lt```
+
+**Fields**: 
+
+_```tweet_text```_: string, 
+
+_```screen_name```_ : string,
+
+_```user_name```_: string, 
+
+_```location```_: string, 
+
+_```source_device```_: string, 
+
+_```is_retweeted```_: boolean, 
+
+_```retweet_count```_: integer,
+
+_```country```_: string, 
+
+_```country_code```_: string, 
+
+_```reply_count```_: integer, 
+
+_```favorite_count```_: integer, 
+
+_```created_at```_: datetime, 
+
+_```timestamp_ms```_: long, 
+
+_```lang```_: string, 
+
+_```hashtags```_: array
+
 
 *Request body*
 
