@@ -48,36 +48,29 @@ $ python app.py
 > Congratulations! Start [Streaming](https://github.com/suyash248/tweety#streaming) & later on data can be filtered by using [Funneling](https://github.com/suyash248/tweety/blob/master/README.md#funnelingsearching) API.
 
 
+## Schema
 
-## API's/Endpoints
+**Operators**: Following operators are available in order to filter/query data/tweets -
 
-### Streaming
+* _```equals```_ : Facilitates exact match, or **=** operator for numeric/datetime values.
 
-```sh
-GET /stream?keywords=cricket,hockey,virat
-```
+* _```contains```_ : Facilitates full-text search.
 
-It will start streaming real-time tweets containing ```kewords```. And tweets will get persisted in elasticsearch under
-the index ```tweets_index``` and ```tweet``` document type.
+* _```wildcard```_ : 
 
-*Response*
+	* ```startswith``` : _*ind_ (Starts with *ind*), 
+	
+	* ```endswith``` : _ind*_ (Ends with *ind*), 
+	
+	* ```wildcard``` : _\*ind\*_ (searches *ind* anywhere in string)
 
-```javascript
-{
-  "status": "success",
-  "message": "Started streaming tweets with keywords [u'cricket', u'hockey', u'virat']"
-}
-```
+* _```gte```_ : **>=** operator for numeric/datetime values.
 
-### Funneling/Searching
+* _```gt```_ : **>** operator for numeric/datetime values.
 
-```sh
-POST /funnel?from=0&size=20
-```
+* _```lte```_ : **<=** operator for numeric/datetime values.
 
-> Note: ```from``` & ```size```  can be used for limit/pagination, but are optional, default ```size``` is 100.
-
-**Operators**: ```equals```, ```contains```, ```wildcard```, ```gte```, ```gt```, ```lte```, ```lt```
+* _```lt```_ : **<** operator for numeric/datetime values.
 
 **Fields**: In Elasticsearch, every document ```tweet``` under ```tweets_index``` will contain following fields - 
 
@@ -110,6 +103,36 @@ POST /funnel?from=0&size=20
 * _```lang```_: string, 
 
 * _```hashtags```_: array
+
+
+
+## API's/Endpoints
+
+### Streaming
+
+```sh
+GET /stream?keywords=cricket,hockey,virat
+```
+
+It will start streaming real-time tweets containing ```kewords```. And tweets will get persisted in elasticsearch under
+the index ```tweets_index``` and ```tweet``` document type.
+
+*Response*
+
+```javascript
+{
+  "status": "success",
+  "message": "Started streaming tweets with keywords [u'cricket', u'hockey', u'virat']"
+}
+```
+
+### Funneling/Searching
+
+```sh
+POST /funnel?from=0&size=20
+```
+
+> Note: ```from``` & ```size```  can be used for limit/pagination, but are optional, default ```size``` is 100.
 
 
 *Request body*
