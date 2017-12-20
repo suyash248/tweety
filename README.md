@@ -45,7 +45,7 @@ $ python app.py
 
 > Now you can access the application by visiting ```{protocol}://{host}:{port}```. For localhost it is ```http://localhost:5000```.
 
-> Congratulations! Start ```Streaming``` & later on data can be filtered by using ```Funneling``` API.
+> Congratulations! Start ```[Streaming](https://github.com/suyash248/tweety#streaming)``` & later on data can be filtered by using ```Funneling``` API.
 
 
 
